@@ -1,0 +1,353 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Lodash</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/league.css">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+</head>
+<body>
+<div class="reveal">
+  <div class="slides">
+    <section class="begining"
+             data-transition="zoom"
+             data-background="img/1406669_1.jpg"
+             data-background-size="90%"
+             data-background-repeat="no-repeat">
+    </section>
+    <section class="greetings" data-transition="zoom">
+      <h3>Lodash</h3>
+      <p>A modern JavaScript utility library</p>
+      <a href="https://lodash.com/" class="topic">Lo</a>
+    </section>
+    <section class="contents" data-transition="zoom">
+      <h3>Contents:</h3>
+      <ol>
+        <li>What is <span class="selection-1">lodash</span>?</li>
+        <li><span class="selection-1">Why </span>do I need it?</li>
+        <li><span class="selection-1">How</span> can I use it?</li>
+        <li>Examples.</li>
+      </ol>
+    </section>
+    <section class="wiki-info" data-transition="zoom">
+      <img src="img/wiki.jpg" alt="wiki info" width=400>
+    </section>
+    <section class="support" data-transition="zoom">
+      <h3>Support</h3>
+      <p>Tested in Chrome 65-66, Firefox 58-59, IE 11, Edge 16, Safari 10-11, Node.js 6-10, & PhantomJS 2.1.1.</p>
+      <ul class="browser-list">
+        <li><img src="img/Google_Chrome_Logo.png" alt="chrome"></li>
+        <li><img src="img/Firefox.png" alt="firefox"></li>
+        <li><img src="img/ie_logo_PNG3.png" alt="ie"></li>
+        <li><img src="img/Safari-Logo.png" alt="safari"></li>
+        <li><img src="img/nodejs-1-226034.png" alt="node.js"></li>
+        <li><img src="img/pjantomjs-res.png" alt="phantomjs"></li>
+      </ul>
+    </section>
+    <section class="families" data-transition="zoom">
+      <h3>Function families</h3>
+      <ul>
+        <li>array;</li>
+        <li>collection;</li>
+        <li>date;</li>
+        <li>function;</li>
+        <li>lang;</li>
+        <li>math;</li>
+        <li>number;</li>
+        <li>object;</li>
+        <li>seq;</li>
+        <li>string;</li>
+        <li>utils;</li>
+        <li>properties.</li>
+      </ul>
+    </section>
+    <section class="documentation"
+             data-background="img/documentation.jpg"
+             data-background-repeat="no-repeat"
+             data-background-size="90%"
+             data-transition="zoom">
+    </section>
+    <section class="installation" data-transition="zoom">
+      <section class="installation" data-transition="zoom">
+        <h2>Download</h2>
+        <p>
+          <a href="https://raw.githubusercontent.com/lodash/lodash/4.17.11-npm/core.js">Core build</a>
+          <a href="https://raw.githubusercontent.com/lodash/lodash/4.17.11-npm/core.min.js">(~4kB gzipped)</a>
+        </p>
+        <p>
+          <a href="https://raw.githubusercontent.com/lodash/lodash/4.17.11-npm/lodash.js">Full build</a>
+          <a href="https://raw.githubusercontent.com/lodash/lodash/4.17.11-npm/lodash.min.js">(~24kB gzipped)</a>
+        </p>
+        <p>
+          <a href="https://www.jsdelivr.com/projects/lodash">CDN copies</a>
+        </p>
+      </section>
+      <section class="installation" data-transition="zoom">
+        <h3>Installation</h3>
+        <p>In a browser:</p>
+        <pre>
+          &lt;script src=&quot;lodash.js&quot;&gt;&lt;/script&gt;</pre>
+        <p>In Node.js:</p>
+        <pre>
+          $ npm i -g npm
+          $ npm i --save lodash</pre>
+        <p>Using npm:</p>
+        <pre>
+          // Load the full build.
+          var _ = require('lodash');
+
+          // Load the core build.
+          var _ = require('lodash/core');
+
+          // Load method categories.
+          var array = require('lodash/array');
+          var object = require('lodash/fp/object');</pre>
+      </section>
+    </section>
+    <section class="function-example" data-transition="zoom">
+      <section class="function-example" data-transition="zoom">
+        <h3>_.range([start=0], end, [step=1])</h3>
+        <span>
+              Creates an array of numbers (positive and/or negative) progressing from start up to, but not including, end.
+            </span>
+        <pre>
+            _.range(4);
+            // => [0, 1, 2, 3]
+
+            _.range(-4);
+            // => [0, -1, -2, -3]
+
+            _.range(1, 5);
+            // => [1, 2, 3, 4]
+
+            _.range(0, 20, 5);
+            // => [0, 5, 10, 15]
+
+            _.range(0, -4, -1);
+            // => [0, -1, -2, -3]   <hr>              <span>pure JS</span>
+            Array.from({ length: 5 }, (v, k) => k);
+            // [0, 1, 2, 3, 4]
+        </pre>
+      </section>
+      <section class="function-example" data-transition="zoom">
+        <h3>_.drop(array, [n=1])</h3>
+        <span>Creates a slice of array with n elements dropped from the beginning.</span>
+        <pre>
+              _.drop([1, 2, 3]);
+              // => [2, 3]
+
+              _.drop([1, 2, 3], 2);
+              // => [3]
+
+              _.drop([1, 2, 3], 5);
+              // => []
+
+              _.drop('string', 3);
+              // => ['i', 'n', 'g']
+            </pre>
+      </section>
+      <section class="function-example" data-transition="zoom">
+        <h3>_.dropRight(array, [n=1])</h3>
+        <span>Creates a slice of array with n elements dropped from the end.</span>
+        <pre>
+          _.dropRight([1, 2, 3]);
+          // => [1, 2]
+
+          _.dropRight([1, 2, 3], 2);
+          // => [1]
+
+          _.dropRight([1, 2, 3], 5);
+          // => []
+
+          _.dropRight('string', 3);
+          // => ['s', 't', 'r']
+        </pre>
+      </section>
+      <section class="function-example" data-transition="zoom">
+        <h3>_.initial(array)</h3>
+        <span>Gets all but the last element of array.</span>
+        <pre>
+          _.initial([1, 2, 3]);
+          // => [1, 2]
+
+          _.initial(['a', 'b', 'c']);
+          // => ['a', 'b']
+
+          _.initial('stringS');
+          // => ['s', 't', 'r', 'i', 'n', 'g']
+        </pre>
+      </section>
+      <section class="function-example" data-transition="zoom">
+        <h3>_.tail(array)</h3>
+        <span>Gets all but the first element of array.</span>
+        <pre>
+          _.tail([1, 2, 3]);
+          // => [2, 3]
+
+          _.tail('abc');
+          // => ['b', 'c']
+        </pre>
+      </section>
+      <section class="function-example" data-transition="zoom">
+        <h3>_.take(array, [n=1]) & _.takeRight(array, [n=1])</h3>
+        <span>Creates a slice of array with n elements taken from the beginning.</span>
+        <pre>
+          _.take([1, 2, 3]);  // => [1]
+
+          _.take([1, 2, 3], 2); // => [1, 2]
+
+          _.take([1, 2, 3], 5); // => [1, 2, 3]
+
+          _.take('string', 2);  // => [ "s", "t" ]
+
+          _.takeRight([1, 2, 3]); // => [3]
+
+          _.takeRight([1, 2, 3], 2);  // => [2, 3]
+
+          _.takeRight([1, 2, 3], 5);  // => [1, 2, 3]
+
+          _.takeRight('string', 2); // => [ "n", "g" ]
+        </pre>
+      </section>
+      <section class="function-example" data-transition="zoom">
+        <h3>_.floor(number, [precision=0]), _.round, _.ceil</h3>
+        <span>Computes number rounded down to precision.</span>
+        <pre>
+          _.floor(4.006); // => 4
+
+          _.floor(0.046, 2);  // => 0.04
+
+          _.floor(4060, -2);  // => 4000
+
+          _.round(4.006); // => 4
+
+          _.round(4.006, 2);  // => 4.01
+
+          _.round(4060, -2);  // => 4100
+
+          _.ceil(4.006);  // => 5
+
+          _.ceil(6.004, 2); // => 6.01
+
+          _.ceil(6040, -2); // => 6100
+        </pre>
+      </section>
+      <section class="function-example" data-transition="zoom">
+        <h3>_.*Case([string=''])</h3>
+        <span>Converts string to * case.</span>
+        <pre>
+          _.camelCase('Foo Bar'); // => 'fooBar'
+
+          _.kebabCase('Foo Bar'); // => 'foo-bar'
+
+          _.lowerCase('--Foo-Bar--'); // => 'foo bar'
+
+          _.snakeCase('fooBar'); // => 'foo_bar'
+
+          _.startCase('--foo-bar--'); // => 'Foo Bar'
+
+          _.upperCase('--foo-bar'); // => 'FOO BAR'
+        </pre>
+      </section>
+      <section class="function-example" data-transition="zoom">
+        <h3>_.trim([string=''], [chars=whitespace])</h3>
+        <span>Removes leading and trailing whitespace or specified characters from string.</span>
+        <pre>
+          _.trim('  abc  ');  // => 'abc'
+
+          _.trim('-_-abc-_-', '_-');  // => 'abc'
+
+    _.map(['  foo  ', '  bar  '], _.trim);  // => ['foo', 'bar']
+
+          _.trimEnd('  abc  '); // => '  abc'
+
+          _.trimEnd('-_-abc-_-', '_-'); // => '-_-abc'
+
+          _.trimStart('  abc  '); // => 'abc  '
+
+          _.trimStart('-_-abc-_-', '_-'); // => 'abc-_-'
+        </pre>
+      </section>
+      <section class="function-example" data-transition="zoom">
+        <h3>_.pad([string=''], [length=0], [chars=' '])</h3>
+        <span>Pads string on the left and right sides if it's shorter than length. Padding characters are truncated if they can't be evenly divided by length.</span>
+        <pre>
+          _.pad('abc', 8);  // => '  abc   '
+
+          _.pad('abc', 8, '_-');  // => '_-abc_-_'
+
+          _.pad('abc', 3);  // => 'abc'
+
+          _.padEnd('abc', 6); // => 'abc   '
+
+          _.padEnd('abc', 6, '_-'); // => 'abc_-_'
+
+          _.padStart('abc', 6); // => '   abc'
+
+          _.padStart('abc', 6, '_-'); // => '_-_abc'
+
+          _.padStart('abc', 3); // => 'abc'
+        </pre>
+      </section>
+      <section class="function-example" data-transition="zoom">
+        <h3>_.to*(value)</h3>
+        <span>Converts value to a *&lt;type&gt;.</span>
+        <pre>
+          _.toArray({ 'a': 1, 'b': 2 });  // => [1, 2]
+
+          _.toArray('abc'); // => ['a', 'b', 'c'];
+
+          _.toInteger(3.2); // => 3
+
+          _.toInteger(Infinity);  // => 1.7976931348623157e+308
+
+          _.toInteger('3.2'); // => 3
+
+          _.toString(null); // => ''
+
+          _.toString([1, 2, 3]);  // => '1,2,3'
+        </pre>
+      </section>
+    </section>
+  </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+  // More info about config & dependencies:
+  // - https://github.com/hakimel/reveal.js#configuration
+  // - https://github.com/hakimel/reveal.js#dependencies
+  Reveal.initialize({
+    dependencies: [
+      {src: 'plugin/markdown/marked.js'},
+      {src: 'plugin/markdown/markdown.js'},
+      {src: 'plugin/notes/notes.js', async: true},
+      {
+        src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+          hljs.initHighlightingOnLoad();
+        }
+      }
+    ]
+  });
+</script>
+<script src="./node_modules/lodash/lodash.js"></script>
+<script>console.log(    _.union([5, 4], [11, 5])     )</script>
+</body>
+</html>

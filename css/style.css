@@ -1,0 +1,53 @@
+.reveal .slides section h3:nth-child(1) {
+  color: #ff9800;
+}
+.reveal .slides .greetings {
+  font-size: 6rem;
+  font-weight: 900;
+}
+.reveal .slides .greetings .topic {
+  color: white;
+  border-bottom: 8px solid dodgerblue;
+}
+.reveal .slides .contents {
+  font-size: 5rem;
+  font-weight: 900;
+}
+.reveal .slides .contents .selection-1 {
+  color: wheat;
+}
+.reveal .slides .support {
+  font-size: 3rem;
+  font-weight: 900;
+}
+.reveal .slides .support .browser-list {
+  display: flex;
+}
+.reveal .slides .support .browser-list li {
+  list-style: none;
+}
+.reveal .slides .support .browser-list li img {
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+.reveal .slides .families {
+  font-size: 3.8rem;
+}
+.reveal .slides .families ul {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 15%;
+}
+.reveal .slides .families ul li {
+  width: 50%;
+}
+.reveal .slides .function-example pre {
+  font-weight: bold;
+  background: white;
+  color: black;
+}
+.reveal .slides .function-example pre span {
+  color: orangered;
+}
+/*# sourceMappingURL=style.css.map */

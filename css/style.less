@@ -1,0 +1,77 @@
+@color-1: #ff9800;
+@color-2: wheat;
+
+
+.reveal {
+  .slides {
+    section {
+      h3:nth-child(1) {
+        color: @color-1;
+      }
+    }
+
+    .greetings {
+      font-size: 6rem;
+      font-weight: 900;
+
+      .topic {
+        color: white;
+        border-bottom: 8px solid dodgerblue;
+      }
+    }
+
+    .contents {
+      font-size: 5rem;
+      font-weight: 900;
+
+      .selection-1 {
+        color: @color-2;
+      }
+    }
+
+    .support {
+      font-size: 3rem;
+      font-weight: 900;
+
+      .browser-list {
+        display: flex;
+        li {
+          list-style: none;
+
+          img {
+            border: none;
+            background: none;
+            box-shadow: none;
+          }
+        }
+      }
+    }
+
+    .families {
+      font-size: 3.8rem;
+
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 15%;
+
+        li {
+          width: 50%;
+        }
+      }
+    }
+
+    .function-example {
+      pre {
+        font-weight: bold;
+        background: white;
+        color: black;
+
+        span {
+          color: orangered;
+        }
+      }
+    }
+  }
+}
+
